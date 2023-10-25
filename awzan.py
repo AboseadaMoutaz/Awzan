@@ -11,8 +11,11 @@ awzan_game = AwzanGame(1)
 # Game Setup
 print( "try")
 reset = st.button("New Game", type="primary")
+
+
 if reset:
-    awzan_game.new_game()
+    st.text(awzan_game.new_game())
+
 
 scale1_text = awzan_game.get_scale_weights(1)
 st.text_area("Scale important", scale1_text)

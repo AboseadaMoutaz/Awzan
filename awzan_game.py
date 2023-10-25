@@ -34,8 +34,8 @@ class AwzanGame:
         print(weights_weight)
         print(choosen_ball.weight)
         print(choosen_ball_index)
-        
-        return choosen_ball, choosen_ball_index
+
+        return " Choosen Weights to reveal is " + str(choosen_ball.color) + " and it is the " + str(choosen_ball_index + 1) + " Heaviest"
 
     
     def add_weight(self, scale, weight, is_left ):
