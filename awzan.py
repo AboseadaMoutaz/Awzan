@@ -7,11 +7,12 @@ from awzan_data import AwzanData
 colors = Colors()
 
 game = AwzanData()
+min, max = game.get_min_max()
 min_col, max_col = st.columns(2)
 with min_col:
-    min = st.text_input("Minimum Weight = ", "1")
+    min = st.text_input("Minimum Weight = ", str(min))
 with max_col:
-    max = st.text_input("Minimum Weight = ", "50")
+    max = st.text_input("Minimum Weight = ", str(max))
 
 reset = st.button("New Game", type="primary")
 

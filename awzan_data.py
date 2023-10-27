@@ -31,14 +31,15 @@ class AwzanData:
         index = self.choosen_numbers.index(self.choosen_number_to_reveal)
         colors = Colors()
         stri = 'Choosen color to reveal = ' + str(colors.colors[index]) + "\n weight is " + str(self.choosen_number_to_reveal) + "\n it is the " + str(self.choosen_number_index + 1) + " heaviest."
-        stri_save = pd.DataFrame(data={'choose': [stri]})
+        stri_save = pd.DataFrame(data={'choose': [stri],'min':[min],'max':[max]})
         stri_save.to_csv("choosen.csv", index=False)
         self.choosen_info = pd.read_csv("choosen.csv")
 
     def get_reset_info(self):
         return self.choosen_info.iloc[[len(self.choosen_info.index)-1]]['choose'].values[0]
 
-    
+    def get_min_max(self):
+        return self.choosen_info.iloc[[len(self.choosen_info.index)-1]]['min'].values[0],self.choosen_info.iloc[[len(self.choosen_info.index)-1]]['max'].values[0]
 
     def get_scale_hand_count(self, scale , is_left):
         last_row = None
