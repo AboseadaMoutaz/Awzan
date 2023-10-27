@@ -112,6 +112,9 @@ class AwzanData:
             if weight_check[w] != weights[w]:
                 verified = False
         return verified
+    
+    def get_all_data(self):
+        return self.choosen_info, self.weights, self.scale1_operations, self.scale2_operations
 
 
 
