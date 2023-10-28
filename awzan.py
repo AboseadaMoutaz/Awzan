@@ -27,5 +27,3 @@ reset = st.button("New Game", type="primary")
 if reset:
     game.reset(int(min), int(max))
 st.text(game.get_reset_info())
-
-st.dataframe(pd.DataFrame(data={'weight': [':red[pihiuh]']}))
