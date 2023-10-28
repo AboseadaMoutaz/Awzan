@@ -115,6 +115,31 @@ class AwzanData:
     
     def get_all_data(self):
         return self.choosen_info, self.weights, self.scale1_operations, self.scale2_operations
+    
+    def get_all_logs(self,scale):
+        scale_rows = None
+        if scale == 0:
+            scale_rows = self.scale1_operations
+        else:
+            scale_rows = self.scale2_operations
+        logs = ''
+        for i in range(0, len(scale_rows.index) - 1):
+            operation = ''
+            if int(scale_rows.iloc[[i]]['left_t'].values[0]) == int(scale_rows.iloc[[i]]['left_t'].values[0]):
+                operation = ' = '
+            elif int(scale_rows.iloc[[i]]['left_t'].values[0]) > int(scale_rows.iloc[[i]]['left_t'].values[0]):
+                operation = ' > '
+            else:
+                operation = ' < '
+            colors = Colors()
+
+            value1 = str(scale_rows.iloc[[i]]['left_d'].values[0])
+            value1 = [eval(i) for i in value1.replace('[','').replace(']','').split(',')]
+            value2 = str(scale_rows.iloc[[i]]['right_d'].values[0])
+            value2 = [eval(i) for i in value2.replace('[','').replace(']','').split(',')]
+            logs += str(i + 1) + ':' + str(colors.get_text(value1)) + operation + str(colors.get_text(value2)) + '       '
+
+        return logs
 
 
 
