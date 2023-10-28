@@ -21,9 +21,10 @@ with min_col:
 with max_col:
     max = st.text_input("Minimum Weight = ", str(max))
 
+new_game_pass = st.text_input('New Game password','')
 reset = st.button("New Game", type="primary")
 
 
-if reset:
+if reset== True and new_game_pass == '701':
     game.reset(int(min), int(max))
 st.text(game.get_reset_info())
