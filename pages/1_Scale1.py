@@ -56,5 +56,29 @@ with scal1_add2:
     scale1_add_count5_r = st.slider(':' + str(colors.colors[4]) + right_string, 0, 4, 0)
 add_scale1 = st.button("Add to Scale", type="primary")
 
+if add_scale1:
+    game.add_scale_weight(0,[scale1_add_count1_l, scale1_add_count2_l, scale1_add_count3_l, scale1_add_count4_l, scale1_add_count5_l]
+                          ,[scale1_add_count1_r, scale1_add_count2_r, scale1_add_count3_r, scale1_add_count4_r, scale1_add_count5_r])
+    st.text("Important scale updated :\n")
+    scale1_col1, scale1_col2, scale1_col3, scale1_col4, scale1_col5 = st.columns(5)
+    with scale1_col1:
+        st.markdown(colors.get_text(game.get_scale_hand_count(0,True)))
+    with scale1_col2:
+        st.text(" | ")
+    with scale1_col3:
+        left_total_1 = game.get_scale_hand_total_count(0, True)
+        right_total_1 = game.get_scale_hand_total_count(0, False)
+        text = ""
+        if left_total_1 == right_total_1:
+            text = " = "
+        elif left_total_1 > right_total_1:
+            text = " > "
+        elif left_total_1 < right_total_1:
+            text = " < "
+        st.text(text)
+    with scale1_col4:
+        st.text(" | ")
+    with scale1_col5:
+        st.markdown(colors.get_text(game.get_scale_hand_count(0,False)))
 
 st.markdown(game.get_all_logs(0))

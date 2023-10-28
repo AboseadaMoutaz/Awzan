@@ -62,7 +62,7 @@ add_scale2 = st.button("Add to Scale", type="primary")
 if add_scale2:
     game.add_scale_weight(1,[scale2_add_count1_l, scale2_add_count2_l, scale2_add_count3_l, scale2_add_count4_l, scale2_add_count5_l]
                           ,[scale2_add_count1_r, scale2_add_count2_r, scale2_add_count3_r, scale2_add_count4_r, scale2_add_count5_r])
-    st.text("Important scale updated :\n")
+    st.text("Not Important scale updated :\n")
     scale2_col1, scale2_col2, scale2_col3, scale2_col4, scale2_col5 = st.columns(5)
     with scale2_col1:
         st.markdown(colors.get_text(game.get_scale_hand_count(1,True)))
